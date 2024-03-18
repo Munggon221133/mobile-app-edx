@@ -1,5 +1,5 @@
 [
     { "id": "1", "title": "CS50's Introduction to Programming with Python", "subtitle": "Harvard University", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/cs50p.jpg" },
-    { "id": "2", "title": "Introduction to Data Science with Python", "subtitle": "Harvard University", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/datasci2.jpg"  },
+    { "id": "2", "title": "Introduction to Data Science with Python", "subtitle": "Harvard University", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/datasci.jpg"  },
     { "id": "3", "title": "Analyzing Data with Excel", "subtitle": "IBM", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/excel.png"  },
 ]
