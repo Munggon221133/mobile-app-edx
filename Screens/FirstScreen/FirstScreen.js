@@ -1,16 +1,14 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar } from 'react-native'
 import React, { useState } from 'react'
-import CustomInput from '../../Components/CustomButton/CustomInput'
+import CustomInput from '../../components/customButton/CustomInput'
+import { useNavigation } from '@react-navigation/native'
 
 export default function FirstScreen() {
   const [search, setSearch] = useState('');
 
-  const onRegisterPressed = () => {
-    console.warn("onRegisterPressed");
-  };
-  const onSignInPressed = () => {
-    console.warn("onSignInPressed");
-  };
+  const onRegisterPressed = useNavigation();
+
+  const onSignInPressed = useNavigation();
 
   const SearchIconPressed = () => {
     console.warn("SearchIconPressed");
@@ -18,6 +16,7 @@ export default function FirstScreen() {
 
   return (
     <View style={styles.root}>
+      <StatusBar backgroundColor='#04242c' barStyle='light-content' />
       <View style={styles.logoContainer}>
         <Image
           style={styles.logo}
@@ -47,7 +46,7 @@ export default function FirstScreen() {
       <View style={styles.buttomContainer}>
         <View style={styles.registContainer}>
           <TouchableOpacity
-            onPress={onRegisterPressed}
+            onPress={() => onRegisterPressed.navigate("SignUp")}
             style={styles.registButton}
           >
             <Text style={styles.registText}>Register</Text>
@@ -55,7 +54,7 @@ export default function FirstScreen() {
         </View>
         <View style={styles.signInContainer}>
           <TouchableOpacity
-            onPress={onSignInPressed}
+            onPress={() => onSignInPressed.navigate("SignIn")}
             style={styles.signInButton}
           >
             <Text style={styles.signText}>Sign In</Text>
@@ -69,16 +68,16 @@ export default function FirstScreen() {
 const styles = StyleSheet.create({
   root: {
     padding: 30,
-    marginTop: 70,
+    marginTop: 60,
   },
   logoContainer: {
     flexDirection: 'row',
-    marginTop: 10,
+    marginTop: -10,
     alignItems: 'center'
   },
   logo: {
-    height: 70,
-    width: 70,
+    height: 75,
+    width: 75,
     marginBottom: 5,
     marginRight: 10,
   },
@@ -100,7 +99,7 @@ const styles = StyleSheet.create({
   },
   buttomContainer: {
     flexDirection: 'row',
-    marginTop: 340,
+    marginTop: 330,
   },
   registContainer: {
     width: '75%',

@@ -1,9 +1,11 @@
-import { StyleSheet, Text, Pressable, Image, } from 'react-native'
+import { StyleSheet, Text, Pressable, Image, View, } from 'react-native'
 import React from 'react'
+import Icons from 'react-native-vector-icons/MaterialIcons'
 
 export default function CustomButton({
     onPress,
-    text, type = "PRIMARY",
+    text,
+    type = "PRIMARY",
     bgColor,
     fgColor,
     fontWeight,
@@ -13,7 +15,10 @@ export default function CustomButton({
     alignCenter = true,
     marginTop,
     flexDirection,
+    padding,
     iconSource,
+    iconType, // Added iconType prop
+    iconColor
 }) {
 
     return (
@@ -28,13 +33,18 @@ export default function CustomButton({
                 alignCenter ? { alignItems: 'center' } : {},
                 marginTop ? { marginTop: marginTop } : {},
                 flexDirection ? { flexDirection: flexDirection } : {},
+                padding ? { padding: padding } : {},
             ]}>
-            {
-                iconSource && <Image
-                    source={iconSource}
-                    style={styles.icon}
+            {iconSource && <Image source={iconSource} style={styles.icon} />}
+            {iconType && (
+                <Icons
+                    name={iconType}
+                    size={30}
+                    color={iconColor}
+                    style={styles.icons}
                 />
-            }
+
+            )}
             <Text
                 style={[
                     styles.text,
@@ -54,7 +64,6 @@ const styles = StyleSheet.create({
         width: '100%',
         padding: 15,
         marginVertical: 5,
-
     },
     container_PRIMARY: {
         backgroundColor: '#3B71F3',
@@ -75,5 +84,10 @@ const styles = StyleSheet.create({
         width: 20,
         height: 20,
         marginRight: 10,
-    }
+    },
+    icons: {
+        width: 30,
+        height: 30,
+        marginRight: 10,
+    },
 });

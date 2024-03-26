@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-export default function TrendingButton({
+export default function ContentButton({
   onPress,
-  text
+  text,
 }) {
   return (
       <TouchableOpacity onPress={onPress}>

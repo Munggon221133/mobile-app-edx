@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import TrendingButton from './TrendingButton';
+import ContentButton from '../customContent/ContentButton';
 
 
 export default function TopMainScreen_S1() {
@@ -45,16 +45,16 @@ export default function TopMainScreen_S1() {
                     <Text style={{ color: 'white' }}>
                         Trending:{' '}
                     </Text>
-                    <TrendingButton
+                    <ContentButton
                         text="Python"
                     />
-                    <TrendingButton
+                    <ContentButton
                         text="Excel"
                     />
-                    <TrendingButton
+                    <ContentButton
                         text="Data Science"
                     />
-                    <TrendingButton
+                    <ContentButton
                         text="Marketing"
                     />
                 </View>
@@ -68,8 +68,9 @@ const styles = StyleSheet.create({
     },
     topContainer: {
         backgroundColor: '#04242c',
-        height: 390,
-        width: '100%'
+        height: 395,
+        width: '100%',
+        marginTop: -20,
     },
     TopTitle: {
         marginLeft: 10,

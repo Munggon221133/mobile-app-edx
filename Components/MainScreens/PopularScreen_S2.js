@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, StyleSheet, Text, View, Image } from 'react-native';
+import { FlatList, StyleSheet, Text, View, Image, Dimensions, } from 'react-native';
 import Icons from 'react-native-vector-icons/Entypo';
 
-export default function PopularScreens_S2() {
+export default function PopularScreens_S2(props) {
     const [popularCourse, setPopularCourse] = useState([]);
 
-    // request API
     const loadPopularCourse = async () => {
         try {
-            let promise = await fetch('https://raw.githubusercontent.com/Munggon221133/MobileAppProject/master/popularSubjects.json');
+            let promise = await fetch('https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/popular_course.json');
             let data = await promise.json();
             console.log("Load Data : ", data);
+            //SET STATE
             setPopularCourse(data);
         } catch (error) {
             console.log("ERROR : ", error);
@@ -22,53 +22,67 @@ export default function PopularScreens_S2() {
     }, []);
 
     return (
-        <View style={styles.root}>
+        <View style={[styles.root, props.style]}>
             <View style={styles.searchContainer}>
                 <Icons name="home" size={20} color="gray" style={{ marginLeft: 15, paddingVertical: 20 }} />
                 <Text style={styles.searchText}>Search home</Text>
             </View>
-            <Text style={styles.filterText}>Filter by popular subjects</Text>
-            <FlatList
-                horizontal
-                data={popularCourse}
-                renderItem={({ item }) => (
-                    <View style={styles.itemContainer}>
-                        <Image style={styles.image} source={{ uri: item.uri }} />
-                        <View style={styles.titleContainer}>
-                            <Text numberOfLines={3} style={styles.title}>{item.title}</Text>
+            <Text style={styles.titleText}>Filter by popular subjects</Text>
+            <View style={styles.rootItemContainer}>
+                <FlatList
+                    horizontal={true}
+                    data={popularCourse}
+                    renderItem={({ item }) => (
+                        <View style={styles.itemContainer}>
+                            <Image style={styles.image} source={{ uri: item.uri }} />
+                            <View style={styles.titleContainer}>
+                                <Text numberOfLines={3} style={styles.title}>{item.title}</Text>
+                            </View>
                         </View>
-                    </View>
-                )}
-                keyExtractor={item => item.id.toString()}
-            />
-        </View>
+                    )}
+                    keyExtractor={item => item.id}
+                />
+            </View>
+        </View >
     );
 }
 
 const styles = StyleSheet.create({
     root: {
-        flex: 1,
         backgroundColor: '#fff',
     },
     searchContainer: {
         flexDirection: 'row',
         alignItems: 'center',
+        marginBottom: -5,
     },
     searchText: {
         fontSize: 13,
         color: 'gray',
         marginLeft: 5,
     },
-    filterText: {
-        fontSize: 40,
+    titleText: {
+        fontSize: 39,
+        color: '#04242c',
+        marginHorizontal: 15,
+        fontWeight: '700',
+    },
+    subTitleText: {
+        fontSize: 25,
         color: '#04242c',
         marginLeft: 15,
         fontWeight: '700',
+        marginTop: 15,
+    },
+    rootItemContainer: {
+        marginHorizontal: 15,
     },
     itemContainer: {
         flexDirection: 'row',
         marginRight: 10,
+        marginLeft: -15,
         marginTop: 20,
+        marginBottom: 50,
     },
     image: {
         width: 80,

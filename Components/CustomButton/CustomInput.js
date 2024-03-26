@@ -30,16 +30,13 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
-
         borderColor: '#e8e8e8',
         borderWidth: 2,
-
         paddingHorizontal: 10,
         marginVertical: 5,
     },
     input: {
         height: 40,
-        flex: 1,
         marginLeft: 10,
     },
     icon: {

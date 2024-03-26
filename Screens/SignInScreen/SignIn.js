@@ -1,15 +1,14 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, StatusBar } from 'react-native'
 import React, { useState } from 'react'
-import CustomInput from '../../Components/CustomButton/CustomInput'
-import CustomButton from '../../Components/CustomButton/CustomButton';
+import CustomInput from '../../components/customButton/CustomInput'
+import CustomButton from '../../components/customButton/CustomButton';
+import { useNavigation } from '@react-navigation/native'
 
 export default function SignInScreen() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const onSignInPressed = () => {
-        console.warn("onSignInPressed");
-    };
+    const onSignInPressed = useNavigation();
 
     const onForgotPasswordPressed = () => {
         console.warn("onForgotPasswordPressed");
@@ -29,7 +28,6 @@ export default function SignInScreen() {
 
     return (
         <View style={styles.root}>
-            <Text style={styles.title}>Sign In</Text>
             <View style={styles.logoContainer}>
                 <Image
                     style={styles.logo}
@@ -50,7 +48,7 @@ export default function SignInScreen() {
             />
             <CustomButton
                 text="Sign In"
-                onPress={onSignInPressed}
+                onPress={() => onSignInPressed.navigate("MainScreen")}
                 bgColor="#d1342c"
                 fontWeight="bold"
             />
@@ -77,8 +75,9 @@ export default function SignInScreen() {
                 text="Login with Facebook"
                 onPress={onFacebookPressed}
                 bgColor="#316FF6"
-                alignCenter={false}
-                iconSource={require('../../assets/facebook.png')}
+                iconType="facebook"
+                iconColor="white"
+                padding={10}
                 flexDirection="row"
             />
             <CustomButton
@@ -103,28 +102,22 @@ export default function SignInScreen() {
 
 const styles = StyleSheet.create({
     root: {
-        justifyContent: 'center',
         alignItems: 'center',
-        paddingHorizontal: 20,
+        padding: 20,
     },
     logoContainer: {
         flexDirection: 'row',
-        marginTop: 10,
+        marginTop: -20,
         alignItems: 'center'
     },
     logo: {
-        height: 100,
-        width: 100,
+        height: 130,
+        width: 130,
         marginBottom: 5,
         marginRight: 10,
     },
     textContainer: {
         marginTop: 20,
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginBottom: 30,
     },
     text: {
         color: 'gray',
