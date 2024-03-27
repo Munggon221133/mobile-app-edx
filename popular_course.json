@@ -1,0 +1,12 @@
+[
+    { "id": "1", "title": "Data Science", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/datasci.jpg" },
+    { "id": "2", "title": "Computer Science", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/comsci.jpg"  },
+    { "id": "3", "title": "Math", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/math.jpg"  },
+    { "id": "4", "title": "Architecture", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/architecture.jpg"  },
+    { "id": "5", "title": "Education & Teacher Training", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/education.jpg" },
+    { "id": "6", "title": "Business & Management", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/business.jpg" },
+    { "id": "7", "title": "Engineering", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/engineering.jpg"  },
+    { "id": "8", "title": "Food & Nutrition", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/food.jpg"  },
+    { "id": "9", "title": "Law", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/law.jpg"  },
+    { "id": "10", "title": "Medicine", "uri": "https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/assets/medicine.jpg" }
+]
