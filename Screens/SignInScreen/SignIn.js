@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, StatusBar } from 'react-native'
+import { StyleSheet, Text, View, Image, } from 'react-native'
 import React, { useState } from 'react'
 import CustomInput from '../../components/customButton/CustomInput'
 import CustomButton from '../../components/customButton/CustomButton';
@@ -48,7 +48,7 @@ export default function SignInScreen() {
             />
             <CustomButton
                 text="Sign In"
-                onPress={() => onSignInPressed.navigate("MainScreen")}
+                onPress={() => onSignInPressed.navigate("MainLearnScreen")}
                 bgColor="#d1342c"
                 fontWeight="bold"
             />

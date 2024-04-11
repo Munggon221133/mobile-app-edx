@@ -5,6 +5,8 @@ import CustomBox from '../customContent/CustomBox';
 export default function ExploreScreen_3(props) {
     const [mostCourse, setMostCourse] = useState([]);
     const [executive, setExecutive] = useState([]);
+    const [master, setMaster] = useState([]);
+    const [bachelor, setBachelor] = useState([]);
 
     const loadMostCourse = async () => {
         try {
@@ -36,6 +38,38 @@ export default function ExploreScreen_3(props) {
 
     useEffect(() => {
         loadExecutive();
+    }, []);
+
+    const loadMaster = async () => {
+        try {
+            let promise = await fetch('https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/master.json');
+            let data = await promise.json();
+            console.log("Load Data : ", data);
+            //SET STATE
+            setMaster(data);
+        } catch (error) {
+            console.log("ERROR : ", error);
+        }
+    };
+
+    useEffect(() => {
+        loadMaster();
+    }, []);
+
+    const loadBachelor = async () => {
+        try {
+            let promise = await fetch('https://raw.githubusercontent.com/Munggon221133/mobile-app-edx/main/bachelor.json');
+            let data = await promise.json();
+            console.log("Load Data : ", data);
+            //SET STATE
+            setBachelor(data);
+        } catch (error) {
+            console.log("ERROR : ", error);
+        }
+    };
+
+    useEffect(() => {
+        loadBachelor();
     }, []);
 
     return (
@@ -77,12 +111,12 @@ export default function ExploreScreen_3(props) {
             <View style={{ marginLeft: 15 }}>
                 <FlatList
                     horizontal={true}
-                    data={mostCourse}
+                    data={master}
                     renderItem={({ item }) => (
                         <CustomBox
                             imageSource={{ uri: item.uri }}
                             text={item.title}
-                            subtext="Harvard University"
+                            subtext={item.subtitle}
                             CourseType="typeM"
                             bgColor="#04242c"
                             fgColor="white"
@@ -95,13 +129,13 @@ export default function ExploreScreen_3(props) {
             <View style={{ marginLeft: 15 }}>
                 <FlatList
                     horizontal={true}
-                    data={mostCourse}
+                    data={bachelor}
                     renderItem={({ item }) => (
                         <CustomBox
                             imageSource={{ uri: item.uri }}
                             text={item.title}
-                            subtext="Harvard University"
-                            CourseType="typeM"
+                            subtext={item.subtitle}
+                            CourseType="typeB"
                             bgColor="#04242c"
                             fgColor="white"
                         />

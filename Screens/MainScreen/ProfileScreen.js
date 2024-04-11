@@ -11,7 +11,6 @@ export default function ProfileScreen() {
     <View style={{ flex: 1 }}>
       <ScrollView>
         <View>
-          <Text style={styles.title}>Profile</Text>
           <VideoSettings />
           <Personalinfo />
           <Privacy />
@@ -23,11 +22,4 @@ export default function ProfileScreen() {
 }
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 30,
-    color: '#04242c',
-    marginTop: 10,
-    marginLeft: 15,
-    fontWeight: '700',
-  },
 })
