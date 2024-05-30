@@ -18,7 +18,6 @@ export default function LearnStack() {
                 component={MyCourse}
                 options={({ navigation }) => ({
                     title: 'My Courses',
-                    headerTintColor: '#04242c',
                     headerTitleStyle: {
                         fontSize: 22,
                     },
@@ -28,13 +27,11 @@ export default function LearnStack() {
                     )
                 })}
             />
-
             <Stack.Screen
                 name='MyProgram'
                 component={MyProgram}
                 options={({ navigation }) => ({
                     title: 'My Program',
-                    headerTintColor: '#04242c',
                     headerTitleStyle: {
                         fontSize: 22,
                     },
@@ -44,13 +41,11 @@ export default function LearnStack() {
                     )
                 })}
             />
-
             <Stack.Screen
                 name='MyNote'
                 component={MyNote}
                 options={({ navigation }) => ({
                     title: 'My Note',
-                    headerTintColor: '#04242c',
                     headerTitleStyle: {
                         fontSize: 22,
                     },
@@ -65,7 +60,6 @@ export default function LearnStack() {
                 component={NoteForm}
                 options={({ navigation }) => ({
                     title: 'Note Form',
-                    headerTintColor: '#04242c',
                     headerTitleStyle: {
                         fontSize: 22,
                     },
@@ -76,7 +70,6 @@ export default function LearnStack() {
                 component={NoteDetail}
                 options={({ navigation }) => ({
                     title: 'Note Detail',
-                    headerTintColor: '#04242c',
                     headerTitleStyle: {
                         fontSize: 22,
                     },
@@ -84,5 +77,4 @@ export default function LearnStack() {
             />
         </Stack.Navigator>
     );
-
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, StyleSheet, Text, View, Dimensions, } from 'react-native';
 import CustomBox from '../customContent/CustomBox';
+import { useNavigation } from '@react-navigation/native'
 
 export default function ExploreScreen_3(props) {
     const [mostCourse, setMostCourse] = useState([]);
@@ -72,6 +73,8 @@ export default function ExploreScreen_3(props) {
         loadBachelor();
     }, []);
 
+    const onID1Pressed = useNavigation();
+
     return (
         <View>
             <Text style={styles.titleText}>Explore courses and programs</Text>
@@ -86,6 +89,13 @@ export default function ExploreScreen_3(props) {
                             text={item.title}
                             subtext={item.subtitle}
                             CourseType="typeC"
+                            onPress={() => {
+                                if (item.id === "1") {
+                                    onID1Pressed.navigate("CS50P");
+                                }
+                            }}
+                            // Disable onPress for items other than id 1
+                            disabled={item.id !== "1"}
                         />
                     )}
                     keyExtractor={item => item.id}

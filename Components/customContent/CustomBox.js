@@ -9,7 +9,6 @@ export default function CustomBox({
     text,
     subtext,
     CourseType,
-    ctColor,
 }) {
     let courseText, courseStyle, courseTextStyle;
     switch (CourseType) {

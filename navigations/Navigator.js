@@ -11,8 +11,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import FirstScreen from '../screens/firstScreen/FirstScreen'
 import SignUp from '../screens/signUpScreen/SignUp'
 import SignIn from '../screens/signInScreen/SignIn'
+import CS50P from '../components/coureses/CS50P';
 
-import LearnStack from '../navigations/LearnStack';
+import LearnStack from './LearnStack'
+import ProfileStack from './ProfileStack';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -45,15 +47,12 @@ function BottomTab() {
                 }}
             />
             <Tab.Screen
-                name='Profile'
-                component={ProfileScreen}
+                name='ProfileStack'
+                component={ProfileStack}
                 options={{
-                    tabBarLabel: "Profile",
+                    tabBarLabel: 'Profile',
                     tabBarIcon: ({ color, size }) => (<Icons3 name="user-large" size={20} color={color} />),
-                    headerTintColor: '#04242c',
-                    headerTitleStyle: {
-                        fontSize: 22,
-                    },
+                    headerShown: false,
                 }}
             />
         </Tab.Navigator>
@@ -90,6 +89,17 @@ function FirstNavStack(props) {
                     component={SignIn}
                     options={{
                         title: 'Sign in',
+                        headerTintColor: '#04242c',
+                        headerTitleStyle: {
+                            fontSize: 22,
+                        },
+                    }}
+                />
+                <Stack.Screen
+                    name='CS50P'
+                    component={CS50P}
+                    options={{
+                        title: 'Discover',
                         headerTintColor: '#04242c',
                         headerTitleStyle: {
                             fontSize: 22,

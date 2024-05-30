@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, StyleSheet, Text, View, Image, Dimensions, } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icons from 'react-native-vector-icons/Entypo';
 
 export default function PopularScreens_S2(props) {

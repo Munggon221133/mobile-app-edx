@@ -2,8 +2,12 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Divider } from 'react-native-paper'
 import React from 'react'
 import Icons from 'react-native-vector-icons/Fontisto'
+import { useNavigation } from '@react-navigation/native'
 
 export default function Personalinfo() {
+  
+  const onPersonalInfoPressed = useNavigation();
+
   return (
     <View>
       <Divider style={styles.divider} />
@@ -16,6 +20,7 @@ export default function Personalinfo() {
             size={15}
             color="#04242c"
             style={styles.icon}
+            onPress={() => onPersonalInfoPressed.navigate("PersonalinfoScreen")}
           />
         </View>
         <Text style={[styles.text, { marginTop: -5 }]}>Username: munggon</Text>
